@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import argparse
 from Models.sql import connectToDB, selectDataOp, insertDataOp
 from datetime import datetime
+from Models.Row import Row
+import Models.ErrorLog as ErrLog
+
 
 # Load Environment Vars
 load_dotenv(override=True)
@@ -16,7 +19,11 @@ db = os.getenv('DB')
 DATASOURCE = os.getenv('DATASOURCE')
 
 # Establish db connection
-connection = connectToDB(host, user, password, db,DATASOURCE)
+try:
+    connection = connectToDB(host, user, password, db,DATASOURCE)
+except Exception as Err:
+    ErrLog.func_logError(str(Err))
+
 
 
 def selectDataHandler():
@@ -24,29 +31,34 @@ def selectDataHandler():
     print(data)
 
 
+class A:
 
-def insertDataHandler():
-    dataobj = {'date':datetime.now().date(),
-                'devId': 'DIV125896', 
-                'alcConc':'22' ,
-                'temperature':'26',
-                 'distance':'6' 
+    def insertDataHandler():
+    
+        insert_data = Row(
+                    date=datetime.now().date(), 
+                    devId='DIV1258596896', 
+                    alcConc='19' , 
+                    humidity='35', 
+                    temperature='35', 
+                    distance='8', 
+                    total=0 )
+
+        try:
+            rowsAffected = insertDataOp(connection, insert_data)
+
+            response = {
+                'message': 'Insert Succeeded',
+                'rows_affected': rowsAffected
             }
-
-    try:
-        rowsAffected = insertDataOp(connection, dataobj)
-
-        response = {
-            'message': 'Insert Succeeded',
-            'rows_affected': rowsAffected
-        }
-        print(response)
-        
-    except Exception as Ex:
-        print(Ex)
+            print(response)
+            
+        except Exception as Ex:
+            print(Ex)
 
 if __name__ == "__main__":
     selectDataHandler()
+    #insertDataHandler()
 
 
 

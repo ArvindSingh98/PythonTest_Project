@@ -1,6 +1,8 @@
 
 from pyodbc import connect, Error as err
 
+import Models.ErrorLog as ErrLog
+
 
 def connectToDB(host, user, password, db ,DATASOURCE):
   
@@ -18,21 +20,14 @@ def connectToDB(host, user, password, db ,DATASOURCE):
         return cnxn
     except Exception as err:
         print(err)
+        ErrLog.func_logError(str(err))
         return None
     
 
 def selectDataOp(connection):
     try:
         cursor = connection.cursor()
-        query = '''
-            SELECT SyncDate ,            
-            DeviceID ,        
-            Humidity,      
-            AlcoholConcentration,   
-            Temperature ,     
-            Distance  FROM IOT_Data
-        '''
-
+        query = "SELECT SyncDate , DeviceID ,Humidity,AlcoholConcentration,Temperature ,Distance  FROM IOT_Data "
         cursor.execute(query)
 
         result = cursor.fetchall()
@@ -54,7 +49,8 @@ def selectDataOp(connection):
 
         return response
     
-    except err:
+    except err:  
+        ErrLog.func_logError(str(err))      
         return err
     
     finally:
@@ -97,6 +93,7 @@ def insertDataOp(connection, data):
 
     except err: 
         print(err)
+        ErrLog.func_logError(str(err))
         print("[ FAILURE ]", end="")
         print(": Data could not be inserted into the database")
         

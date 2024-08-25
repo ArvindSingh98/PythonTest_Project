@@ -1,8 +1,8 @@
 import Models.ErrorLog as Logger 
 class A:    
     
-    # def __init__(self):
-    #     print('Object Initialize!!')        
+    def __init__(self):
+        print('Object Initialize!!')        
         
 
     def func_PrintDivision(self):

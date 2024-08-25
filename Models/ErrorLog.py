@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-dirName ="D:\\Arvind\\TestProjects\\Pythons\\Python_ProgramTest\\ErrorLogs"
+dirName ="D:\\Arvind\\TestProjects\\Pythons\\PythonTest_Project\\ErrorLogs"
 current_datetime = datetime.now().date()
 
 Err_date = current_datetime.strftime("%d_%m_%Y")
