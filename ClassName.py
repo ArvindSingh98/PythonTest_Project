@@ -1,4 +1,7 @@
 import Models.ErrorLog as Logger 
+
+
+
 class A:    
     
     def __init__(self):
@@ -16,7 +19,8 @@ class A:
                 print('Nothing to display!')
         except Exception as err:
              # print('Error Occured As :')
-             print(Logger.func_logError(str(err)))
+             #print(logging.error(err, exc_info=True))
+             print(Logger.func_logError(err))
 
 
 if __name__ == "__main__":

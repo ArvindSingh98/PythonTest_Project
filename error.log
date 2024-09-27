@@ -1,0 +1,22 @@
+2024-09-27 15:08:28,539 ERROR name 's' is not defined
+Traceback (most recent call last):
+  File "D:\Arvind\TestProjects\Pythons\PythonTest_Project\ClassName.py", line 17, in func_PrintDivision
+    self.Div = eval(input('Enter Num to Divide the entered Num:'))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 's' is not defined
+2024-09-27 15:09:10,809 ERROR name 'arvsjs4' is not defined
+Traceback (most recent call last):
+  File "D:\Arvind\TestProjects\Pythons\PythonTest_Project\ClassName.py", line 17, in func_PrintDivision
+    self.Div = eval(input('Enter Num to Divide the entered Num:'))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'arvsjs4' is not defined
+2024-09-27 15:11:08,166 ERROR name 'asddds' is not defined
+Traceback (most recent call last):
+  File "D:\Arvind\TestProjects\Pythons\PythonTest_Project\ClassName.py", line 17, in func_PrintDivision
+    self.Div = eval(input('Enter Num to Divide the entered Num:'))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'asddds' is not defined
+2024-09-27 15:11:21,835 ERROR name 'sbs' is not defined
