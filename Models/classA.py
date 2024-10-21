@@ -25,6 +25,10 @@ class B(A,A1):
 		# x = lambda x,y:(name+' '+str(age))
 		# print('values :'+x(name,age))
 	    #for val in arg:
+		"""This is the documentation string for my_function."""
+		"""
+		test documented code here..
+		"""
 		print(type (arg))
 		vals = lambda x:(str(arg))
 		print('Value :'+vals(arg))
@@ -33,6 +37,7 @@ class B(A,A1):
 if __name__ == "__main__":
 	obj =B()
 	obj.getdetails('test','entry',25)
+	print(obj.getdetails.__doc__)
 
 
 	
