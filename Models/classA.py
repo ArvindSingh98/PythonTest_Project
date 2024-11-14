@@ -36,8 +36,10 @@ class B(A,A1):
 	
 if __name__ == "__main__":
 	obj =B()
+	#edited by me
 	obj.getdetails('test','entry',25)
 	print(obj.getdetails.__doc__)
+
 
 
 	
