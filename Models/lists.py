@@ -5,12 +5,13 @@ def find_paths(grid, start, destination):
         if grid[x][y] == destination:
             paths.append(path + [(x, y)])
             return
+        temp = grid[x][y]
         grid[x][y] = -1  # Mark as visited
         dfs(x + 1, y, path + [(x, y)])
         dfs(x - 1, y, path + [(x, y)])
         dfs(x, y + 1, path + [(x, y)])
         dfs(x, y - 1, path + [(x, y)])
-        grid[x][y] = 0  # Unmark
+        grid[x][y] = temp  # Unmark
 
     paths = []
     dfs(start[0], start[1], [])

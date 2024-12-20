@@ -1,4 +1,3 @@
-
 from pyodbc import connect, Error as err
 
 import Models.ErrorLog as ErrLog
@@ -91,7 +90,7 @@ def insertDataOp(connection, data):
         return total_rows_added
             
 
-    except err: 
+    except Exception as err: 
         print(err)
         ErrLog.func_logError(str(err))
         print("[ FAILURE ]", end="")
@@ -102,9 +101,5 @@ def insertDataOp(connection, data):
         print(f"Error Details: {err}")
         print(f"Error Arguments: {err.args}")
 
-
-
     finally:
         cursor.close()
-
-
